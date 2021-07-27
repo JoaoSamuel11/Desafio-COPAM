@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "d712fe77-fd7d-4b4f-b117-0214af5192d5",
+		"name": "Teste",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET COPAM",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests['Teste GET'] = responseCode.code === 200;\r",
+							"\r",
+							"var schema = {\r",
+							"    \"type\":\"array\",\r",
+							"    \"items\": [{\r",
+							"        \"type\":\"object\",\r",
+							"        \"properties\":{\r",
+							"            \"userId\":{\"type\":\"number\"},\r",
+							"            \"id\":{\"type\":\"number\"},\r",
+							"            \"title\":{\"typer\":\"string\"},\r",
+							"            \"body\":{\"type\":\"string\"}\r",
+							"        }\r",
+							"    }]\r",
+							"    \r",
+							"};\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://jsonplaceholder.typicode.com/posts",
+					"protocol": "http",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST COPAM",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests['Test POST'] = responseCode.code === 201;\r",
+							"\r",
+							"var schema = {\r",
+							"    \"type\":\"object\",\r",
+							"    \"properties\":{\r",
+							"        \"id\":{\"type\":\"number\"}\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT COPAM",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests['Test PUT'] = responseCode.code === 200;\r",
+							"\r",
+							"\r",
+							"var schema = {\r",
+							"    \"type\":\"object\",\r",
+							"    \"properties\":{\r",
+							"        \"id\":{\"type\":\"number\"}\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE COPAM",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests['Test DELETE'] = responseCode.code === 200;\r",
+							"\r",
+							"//o metodo delete retorna um json vazio\r",
+							"var schema = {\r",
+							"    \r",
+							"};\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(tv4.validate(pm.response.json(), schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
